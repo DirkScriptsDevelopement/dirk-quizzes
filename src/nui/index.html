@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hubballi&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css" integrity="sha256-8EYN3r3ZVCWlBZCQhQOhcPX/CLKL1TVzxxeR/HzR5vU=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js" integrity="sha512-EZhmSl/hiKyEHklogkakFnSYa5mWsLmTC4ZfvVzhqYNLPbXKAXsjUYRf2O9OlzQN33H0xBVfGSEIUeqt9astHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style type="text/css">
+
+
+    html,body {
+      /*background-image: url("https://cdn.wccftech.com/wp-content/uploads/2014/11/gtav-comp-2-1.png");*/
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      overflow: hidden;
+      background-color: transparent !important;
+    }
+
+    .container{
+      /*overflow: hidden;*/
+      transition: opacity .25s ease-in-out;
+      -moz-transition: opacity .25s ease-in-out;
+      -webkit-transition: opacity .25s ease-in-out;
+      user-select: none;
+      opacity: 0;
+      font-family: 'Bebas Neue';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 50%;
+      height: 65%;
+
+      display: flex; 
+      flex-direction: column; 
+      overflow: hidden;
+     border-radius: 5px;
+     background: #0e5c7b ;
+      /* From https://css.glass */
+/*      
+     
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);*/
+      border: 1px solid rgba(255, 255, 255, 0.54);
+      padding: 7.5px;
+      gap: 10px;
+    }
+
+
+    .title{
+      display: flex;
+      flex-direction: column;
+      vertical-align: center;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      width: 100%;
+      height: 10%;
+      color: rgba(255,255,255,0.8);
+      font-size:400%;
+      border-bottom: solid 2px rgba(125,125,125,0.5);
+    }
+
+
+    .questions{
+      padding: 4.5px;
+
+      height: 100%;
+      overflow-y: scroll;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 7.5px;
+    }
+
+    .questioncontainer{
+
+      -webkit-box-shadow:0px 0px 1.25px 1.25px rgba(255,255,255,0.41);
+      -moz-box-shadow: 0px 0px 1.25px 1.25px rgba(255,255,255,0.41);
+      box-shadow: 0px 0px 1.25px 1.25px rgba(255,255,255,0.41);
+      overflow: hidden;
+      border-radius: 5px;
+      height: auto;
+      min-height: 45%;
+      /*min-height: min-content;*/
+      width: 100%;
+      background: #1a96c7;
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .qmark{
+      color: rgba(255,255,255,0.8);
+      padding-top: 2.5px;
+      padding-right: 12.5px;
+      padding-left: 5px;
+           font-size: 110%;
+
+    }
+
+    .question{
+      background-color: #15779e;
+      padding: 5px;
+      display: flex;
+/*      flex-direction: column;
+      vertical-align: center;
+      justify-content: center;*/
+/*      justify-items: center;
+      align-items: center;*/
+      width: 100%;
+      height: auto;
+      padding-right: 7.5px;
+      color: rgba(255,255,255,1.2);
+      font-size: 100%;
+      border-bottom: solid 2px rgba(125,125,125,0.5);
+    }
+
+
+
+    .answers{
+      height: auto;
+      overflow: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      padding: 5px;
+      gap: 5px;
+    }
+
+    .answer{
+      border-radius: 2.5px;
+      padding: 7.5px;
+      height: auto;
+      width: 90%;
+      gap: 7.5px;
+      background-color: #15779e;
+      display: flex;
+      flex-direction: row;
+    }
+
+
+    .answer:hover{
+      background-color: rgba(21, 119, 158, 0.8);
+      transition: all 0.2s ease-in-out;
+    }  
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+  .confirm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height:20%;
+    color: rgba(255,255,255,0.6);
+    font-size: 350%;
+  }
+
+  .confirm:hover{
+    color: rgba(255,255,255,0.9);
+  }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title"><div>Bounty Hunter License</div></div>
+    <div class="questions">
+      <div class="questioncontainer">
+        <div class="question"></div>
+        <div class="answers">
+          <div class="answer"></div>
+        </div>
+      </div>
+      <div class="questioncontainer">
+        
+        <div class="question"><i class="fas fa-question qmark "></i>How many could you fit in here liek if this was a long question what is gonna happen cause sometimes it has to eb a logn questionand now I am typing stuff for hte sake o fit just to tsee  it in here liek if this was a long question what is gonna happen cause sometimes it has to eb a logn questionand now I am typing stuff for hte sake o fit just to tsee? </div>
+        <div class="answers">
+          <div class="answer"><div>This is the answer This is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answerThis is the answer</div></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript">
+
+    // let Questions = {
+    //   'Question Name':{
+    //     'Quietly':true,
+    //     'Quietly 2':false,
+    //     'Quietly 4':false,
+    //   },
+
+    //   'Question Name 1':{
+    //     'Quietly':true,
+    //     'Quietly 2':false,
+    //     'Quietly 4':false,
+    //   },
+    //   'Question Name 3':{
+    //     'Quietly':true,
+    //     'Quietly 2':false,
+    //     'Quietly 4':false,
+    //     'Quietly 6':false,
+    //     'Quietly 4':false,
+    //   },
+
+    //   'Question Name 4':{
+    //     'Quietly':true,
+    //     'Quietly 2':false,
+    //     'Quietly 4':false,
+    //   },
+    // }
+
+
+
+    let Answered = {}
+    let QuizPassed = false;
+    let Confirmed = false;
+    let Exited = false;
+    let takingTest = false;
+    BuildQuiz = function(title,questions,reqPass){
+      $('.container').empty();
+      $('.container').css("opacity", "1");
+
+      Confirmed = false;
+      QuizPassed = false;
+      Exited = false;
+      Answered = {};
+      takingTest = true;
+      let Correct = 0;
+      let Total = 0;
+
+
+      $(`<div class="title">${title}</div>`).appendTo('.container');
+      $(`<div class="questions"></div>`).appendTo('.container');
+      
+
+
+      for (const [quest, answers] of Object.entries(questions)) {
+        Total = Total + 1; 
+        let questioncont = $(`<div class="questioncontainer"></div>`).appendTo('.questions');
+        let question = $(`<div class="question"></div>`).appendTo(questioncont);
+        let qmark = $(`<i class="fas fa-question qmark ">`).appendTo(question);
+        let qtxt = $(`<div>${quest}</div>`).appendTo(question);
+        let answersCont = $(`<div class="answers"></div>`).appendTo(questioncont);
+        for (const [answer, correct] of Object.entries(answers)) {
+          console.log(answer,correct)
+          let answerCont = $(`<div class = "answer">${answer}</div>`).appendTo(answersCont)
+          $(answerCont).click(function(){
+            if (!Answered[quest] && !Confirmed){ 
+              if (correct == true){
+                Correct = Correct + 1
+               $(answerCont).css("background-color","green")
+              }else{
+                $(answerCont).css("background-color","red")
+              }
+              Answered[quest] = answer;
+            }
+          });
+        }
+
+
+      }
+        let confirmButton = $(`<div class="confirm"></i></div>`).appendTo('.container');    
+        let confirmIcon   = $(`<i class="fas fa-check-circle">`).appendTo(confirmButton);
+        $(confirmButton).click(function(){
+          Confirmed = true;
+          console.log(`${Correct}/${Total}`)
+          let perc = (Correct/Total) * 100
+          $(confirmButton).empty();
+          $(confirmButton).css("font-size", "200%")
+          if (perc >= reqPass){
+            let correctanswers = $(`<div>You passed with: ${perc}% Answers Correct</div>`).appendTo(confirmButton);
+            $(correctanswers).css("color","green")
+            QuizPassed = true;
+          }else{
+            let correctanswers = $(`<div>You failed with: ${perc}% Answers Correct</div>`).appendTo(confirmButton);
+            $(correctanswers).css("color","red")
+          }
+
+          setTimeout(function(){
+            $('.container').css("opacity", "0");
+            if (Exited != true){
+              takingTest = false;
+               $.post(`http://dirk-quizzes/return`, JSON.stringify({
+                  passedQuiz: QuizPassed,
+              })) 
+            }
+          }, 1000)
+        })
+    }
+
+ 
+    $(document).on('keyup', function(e) {
+      if (e.key == "Escape") {
+        if (takingTest){
+
+          $('.container').css("opacity", "0");
+          $('.container').empty();
+          takingTest = false;
+           $.post(`http://dirk-quizzes/return`, JSON.stringify({
+              passedQuiz: QuizPassed,
+          }))          
+        }
+      }
+    });
+
+    window.addEventListener("message", function(event) {
+        if (event.data.type === "newQuiz") {
+          BuildQuiz(event.data.title, event.data.questions, event.data.reqPass);
+        }
+    });
+
+
+</script>
+<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+</body>
+</html>
